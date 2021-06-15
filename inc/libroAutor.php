@@ -10,7 +10,7 @@ if($nfilas>0){
         $sql_libro = "SELECT * FROM libro WHERE id='$id_lib'";
         $consulta_lib = mysqli_query($con, $sql_libro);
         $fila= mysqli_fetch_array($consulta_lib);
-        ?><div class="gal_libros">
+        ?><div class="aut_books">
             <a href="../detalle/detalleLibro.php?id=<?=$fila["id"]?>">
                 <div class="port_colec" onmouseover="showTtl('<?=$fila["id"]?>')" onmouseout="hideTtl('<?=$fila["id"]?>')">
                     <img src="../actbbdd/uploads/<?=$fila["portada"]?>" alt="titulo libro">

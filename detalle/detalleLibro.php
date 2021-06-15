@@ -195,6 +195,7 @@ if(isset($_GET["id"])){
                     </div>
                 </div>
                 <div class="principal">
+                    <div class="nombre_texto">
                     <h2><?=$titulo?></h2>
                     <h3><?php
                         $cuantos_aut = count($id_autores);
@@ -220,6 +221,7 @@ if(isset($_GET["id"])){
                         ?>
                     </h3>
                     <p><?=$sinopsis?></p>
+                    </div>
                 </div>
 
             </article>

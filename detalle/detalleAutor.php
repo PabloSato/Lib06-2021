@@ -68,13 +68,13 @@ if(isset($_GET["id"])){
 
                         </h2>
                         <p><?=$fila["bio"]?></p>
-
-                             <div class="aut_books">
+                    </div>
+                             <div class="aut_gal">
 
                                  <?php include '../inc/libroAutor.php';?>
 
                              </div>
-                    </div>
+                    
                 </div>
 
             </article>
