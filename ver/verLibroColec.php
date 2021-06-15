@@ -8,10 +8,6 @@ if(isset($_GET["id"])){
     $filaG = mysqli_fetch_array($consulta_gen);
     $coleccion = $filaG["nombre"];   
     
-    $sql_saga = "SELECT * FROM saga WHERE coleccion = $id";
-    $consu_saga = mysqli_query($con, $sql_saga);
-    $nfilas = mysqli_num_rows($consu_saga);
-    
 }
 ?>
 <!DOCTYPE html>
@@ -47,35 +43,36 @@ if(isset($_GET["id"])){
            </div>
            
             <?php
-            $sql_autor = "SELECT * FROM saga
-              WHERE saga.coleccion = $id
-              ORDER BY nombre ASC";
-                $consulta_autor = mysqli_query($con, $sql_autor);
-                $nfilas = mysqli_num_rows($consulta_autor);
-                if($nfilas>0){
-                    ?>
-           <hr>
-            <h2>SAGAS</h2>
-            <div class="gal_total_colec">
+               $sql_saga = "SELECT * FROM saga WHERE saga.coleccion = $id ORDER BY nombre ASC";
+               $consu_saga = mysqli_query($con, $sql_saga);
+               $nfilas = mysqli_num_rows($consu_saga);
+               if($nfilas>0){
+                   ?>
+                    <hr>
+                    <h2>SAGAS</h2>
+                    <div class="gal_total_colec">
                         <?php
-                    for($i=0; $i<$nfilas;$i++){
-                        $fila = mysqli_fetch_array($consulta_autor);
-                        ?><div class="gal_libros_colec">
-                            <a href="../ver/verLibroSaga.php?id=<?=$fila["id_saga"]?>">
-                                <div class="port_colec" onmouseover="showTtl('<?=$fila["id_saga"]?>')" onmouseout="hideTtl('<?=$fila["id_saga"]?>')">
-                                    <img src="../actbbdd/uploads/<?=$fila["imagen"]?>" alt="<?=$fila["nombre"]?>">
-                                    <div class="tit_colec" id="<?=$fila["id_saga"]?>">
-                                        <h5><?=$fila["nombre"] ?></h5>
-                                    </div>
+                            for($i=0; $i < $nfilas; $i++){
+                               $fila = mysqli_fetch_array($consu_saga);
+                               ?>
+                                <div class="gal_libros_colec">
+                                    <a href="verLibroSaga.php?id=<?=$fila["id_saga"]?>">
+                                        <div class="port_colec" onmouseover="showTtl('<?=$fila["id_saga"]?>')" onmouseout="hideTtl('<?=$fila["id_saga"]?>')">
+                                            <img src="../actbbdd/uploads/<?=$fila["imagen"]?>" alt="<?=$fila["nombre"]?>">
+                                            <div class="tit_colec" id="<?=$fila["id_saga"]?>">
+                                                <h5><?=$fila["nombre"]?></h5>
+                                            </div>   
+                                        </div>
+                                    </a>
                                 </div>
-
-                            </a>
-                        </div><?php
-                    }
-                }?><br>
-            </div>
+                               <?php
+                            }
+                        ?>
+                    </div>
+            <?php   }
+            ?>
+            <br>    
             <hr>
-            <br>
             <div class="gal_total">
                 <?php include '../inc/libroColec.php';?>
             </div>
