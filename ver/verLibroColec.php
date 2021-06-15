@@ -72,8 +72,7 @@ if(isset($_GET["id"])){
                             </a>
                         </div><?php
                     }
-                }?><br><?php
-            ?>
+                }?><br>
             </div>
             <hr>
             <br>
