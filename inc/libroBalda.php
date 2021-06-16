@@ -1,6 +1,6 @@
 <?php
 include '../inc/conexion.php';
-$sql_libro = "SELECT * FROM libro WHERE balda = '$id' ORDER BY titulo ASC";
+$sql_libro = "SELECT * FROM libro WHERE balda = '$id' ORDER BY fecha ASC";
 $consulta_balda = mysqli_query($con, $sql_libro);
 $nfilas = mysqli_num_rows($consulta_balda);
 if($nfilas>0){

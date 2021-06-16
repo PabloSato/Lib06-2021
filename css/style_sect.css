@@ -466,6 +466,7 @@ p, h4, h5{
   .aut_gal .aut_books a .port_colec{
       display: block;
       max-height: 100%;
+      max-width: 142px;
       position: relative;
   }
   .aut_gal .aut_books a .port_colec:hover{
@@ -478,10 +479,11 @@ p, h4, h5{
       min-height: 230px;
   }
   .aut_gal .aut_books a .tit_catal{
-      width: 100%;
+    width: 100%;
     position: absolute;
     background-color: rgba(94, 90, 90, 0.8);
     bottom: 0px;
+    overflow: auto;
     display: none;
   }
   .aut_gal .aut_books a .tit_catal h5{
