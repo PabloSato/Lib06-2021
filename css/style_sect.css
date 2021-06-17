@@ -243,6 +243,7 @@ p, h4, h5{
     grid-template-columns: repeat(6, 1fr);
     gap: 1em;
     grid-auto-rows: 250px;
+    list-style: none;
 }
 .gal_total_colec{
     margin-top: 10px;
@@ -250,6 +251,7 @@ p, h4, h5{
     grid-template-columns: repeat(5, 1fr);
     gap: 1em;
     grid-auto-rows: 175px;
+    list-style: none;
 }
 /*.gal_libros{
     width: 18%;

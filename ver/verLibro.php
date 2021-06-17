@@ -26,13 +26,13 @@
     <section class="fondo_claro">
        <div class="conte">
             <div class="buscador">
-               <input type="text" id="myInput"  onkeyup="myfunction()" placeholder="buscar libro..."
+               <input type="text" id="myInput"  onkeyup="myFunction()" placeholder="buscar libro..."
                       title="Type in a name" autofocus>
            </div>
             <hr>
-            <div class="gal_total" id="myUL">
+            <ul class="gal_total" id="myUL">
                 <?php include '../inc/libros.php';?>
-            </div>
+            </ul>
             
         </div>
 
@@ -44,20 +44,19 @@
         function hideTtl(id){document.getElementById(id).style.display="none";}
     </script>
     <script>
-        function myfunction(){
-            var input, filter, ul, li, a , i, txtValue;
-            input = document.getElementById('myInput');
+        function myFunction(){
+            var input, filter, ul, li, a, i, txtValue;
+            input = document.getElementById("myInput");
             filter = input.value.toUpperCase();
-            ul = document.getElementById('myUL');
-            li = document.getElementsByClassName('gal_libros');
-            for(i = 0; i<li.length; i++){
-                a = li[i].getElementsByTagName("h5")[0];
+            ul = document.getElementById("myUL");
+            li = ul.getElementsByTagName("li");
+            for(i = 0; i< li.length; i++){
+                a = li[i].getElementsByTagName("a")[0];
                 txtValue = a.textContent || a.innerText;
                 if(txtValue.toUpperCase().indexOf(filter) > -1){
                     li[i].style.display = "";
-                } else {
+                }else{
                     li[i].style.display = "none";
-                }
                 }
             }
         }

@@ -6,7 +6,7 @@ $nfilas = mysqli_num_rows($consulta_autor);
 if($nfilas>0){
     for($i=0; $i<$nfilas;$i++){
         $fila = mysqli_fetch_array($consulta_autor);
-        ?><div class="gal_libros_colec">
+        ?><li class="gal_libros_colec">
             <a href="../ver/verLibroGenero.php?id=<?=$fila["id"]?>">
                 <div class="port_colec" onmouseover="showTtl('<?=$fila["id"]?>')" onmouseout="hideTtl('<?=$fila["id"]?>')">
                     <img src="../actbbdd/uploads/<?=$fila["imagen"]?>" alt="nombre genero">
@@ -16,7 +16,7 @@ if($nfilas>0){
                 </div>
                     
             </a>
-        </div><?php
+        </li><?php
     }
 }else{
 ?><li>No hay registros</li><?php

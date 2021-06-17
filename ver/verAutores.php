@@ -24,13 +24,13 @@
     <section class="fondo_claro">
         <div class="conte">
             <div class="buscador">
-               <input type="text" id="myInput" placeholder="buscar autor..." onkeyup="myfunction()"
+               <input type="text" id="myInput" placeholder="buscar autor..." onkeyup="myFunction()"
                       title="Type in a name" autofocus>
            </div>
             <hr>
-            <div class="gal_total">
+            <ul class="gal_total" id="myUL">
                 <?php include '../inc/autores.php';?>
-            </div>
+            </ul>
             
         </div>
     </section>
@@ -40,5 +40,23 @@
     </script>
     <script>
         function hideTtl(id){document.getElementById(id).style.display="none";}
+    </script>
+    <script>
+        function myFunction(){
+            var input, filter, ul, li, a, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("myUL");
+            li = ul.getElementsByTagName("li");
+            for(i = 0; i< li.length; i++){
+                a = li[i].getElementsByTagName("a")[0];
+                txtValue = a.textContent || a.innerText;
+                if(txtValue.toUpperCase().indexOf(filter) > -1){
+                    li[i].style.display = "";
+                }else{
+                    li[i].style.display = "none";
+                }
+            }
+        }
     </script>
 </html>
