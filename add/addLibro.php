@@ -160,21 +160,18 @@ if(isset($_GET["mng"]))
                         </select>
                         <br>
                         <label for="paginas">Páginas: </label>
-                        <br>
                         <input id="paginas" type="number" name="paginas" placeholder="añade número...">
                         <br>
                         <label for="paginas">Idioma: </label>
-                        <br>
                         <select id="idioma" name="idioma">
                             <option disabled selected>--</option>
                             <?php
                               include '../check/checkIdioma.php';
                             ?>
                         </select>
+                        Leído<input type="checkbox" name="leido" value="si">
                         <br>
-                        <input type="checkbox" name="leido" value="si">Leído
-                        <br>
-                        <label>Portada <h5>(24,38 x 36,12 cm)</h5></label>
+                        <label>Portada: <h5>(24,38 x 36,12 cm)</h5></label>
                         <input type="file" name="portada">
                         <br>
                         <label>Sinopsis:</label>
