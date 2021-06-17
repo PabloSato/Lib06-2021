@@ -9,7 +9,7 @@ $titulo = $_POST["titulo"];
 $paginas = $_POST["paginas"];
 $idioma = $_POST["idioma"];
 $leido = $_POST["leido"];
-$coleccion = $_POST["coleccion"];
+//$coleccion = $_POST["coleccion"];//---------------
 $tomoCol = $_POST["tomoCol"];
 $saga = $_POST["saga"];
 $tomoSag = $_POST["tomoSag"];
@@ -30,6 +30,12 @@ $consu_idAutor2 = mysqli_query($con, $sql_idAutor2);
 $result_idAutor2 = mysqli_fetch_array($consu_idAutor2);
 $autor2 = $result_idAutor2["id"];
 
+//INFO COLECCIÓN
+$col_form = $_POST["coleccion"];
+$sql_colecion = "SELECT * FROM coleccion WHERE nombre = '$col_form'";
+$consu_col = mysqli_query($con, $sql_colecion);
+$result_col = mysqli_fetch_array($consu_col);
+$coleccion = $result_col["id"];
 
 //GENERO
 $genero = $_POST["genero"];

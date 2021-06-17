@@ -66,7 +66,7 @@ if(isset($_GET["mng"]))
                          <br>
                          <input id="titulo" type="text" name="titulo" placeholder="añade titulo..." autofocus required>
                         <br>
-                        <label for="autor">Autor: </label>
+                        <label for="autores">Autor: </label>
                         <br>
                         <input list="autores" name="autor" id="autor">
                         <datalist id="autores">
@@ -101,12 +101,17 @@ if(isset($_GET["mng"]))
                         <div class="col" id="clc">
                             <label for="coleccion">Colección: </label>
                             <br>
-                            <select id="coleccion" name="coleccion">
+                            <input list="colec" id="coleccion" name="coleccion">
+                            <datalist id="colec">
+                               <?php
+                                    include '../check/checkColec.php';
+                                ?> 
+                            </datalist>
+                            <!--<select id="coleccion" name="coleccion">
                             <option disabled selected>--</option>
-                            <?php
-                              include '../check/checkColec.php';
-                            ?>
-                            </select>
+                            
+                            
+                            </select>-->
                             <br>
                             <label for="tomoCol">Tomo: </label>
                             <br>

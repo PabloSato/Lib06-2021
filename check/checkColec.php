@@ -8,7 +8,7 @@ if($nfilas_col>0){
         $fila_col = mysqli_fetch_array($consulta_colec);
         ?>
 
-<option value="<?= $fila_col["id"]?>"><?= $fila_col["nombre"]?></option>   
+<option value="<?= $fila_col["nombre"]?>">   
         <?php
     }
 }
