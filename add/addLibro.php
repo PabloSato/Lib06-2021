@@ -68,111 +68,107 @@ if(isset($_GET["mng"]))
                         <br>
                         <label for="autores">Autor: </label>
                         <br>
-                        <input list="autores" name="autor" id="autor">
-                        <datalist id="autores">
-                            <?php
-                            include '../check/checkAutores.php';
-                            ?>
-                        </datalist>
-                        <input list="autores2" name="autor2" id="autor2">
-                        <datalist id="autores2">
-                            <?php
-                            include '../check/checkAutores.php';
-                            ?>
-                        </datalist>
-                        <!--<select id="autor" name="autor">
-                            <option disabled="" selected="">--</option>
-                            <?php
-                            //include '../check/checkAutores.php';
-                            ?>
-                        </select>-->
-                        <!--<select id="autor2" name="autor2">
-                                <option disabled="" selected="">--</option>
+                        <div class="dos">
+                            <input list="autores" name="autor" id="autor" class="lista" placeholder="introduce el autor....">
+                            <datalist id="autores">
                                 <?php
-                                //include '../check/checkAutores.php';
+                                    include '../check/checkAutores.php';
                                 ?>
-                        </select>-->
-                        <br>
+                            </datalist>
+                            <input list="autores2" name="autor2" id="autor2" class="lista" placeholder="introduce más autores....">
+                            <datalist id="autores2">
+                                <?php
+                                    include '../check/checkAutores.php';
+                                ?>
+                            </datalist>
+                        </div>
                         <label for="coleccion">¿Pertenece a una Colección?</label>
                         <br>
                         <input type="radio" name="colec_siNo" value="si" onclick="show('clc')">Si
                         <input type="radio" name="colec_siNo" value="no" onclick="hide('clc')">No
                         <br>
                         <div class="col" id="clc">
-                            <label for="coleccion">Colección: </label>
-                            <br>
-                            <input list="colec" id="coleccion" name="coleccion">
-                            <datalist id="colec">
-                               <?php
-                                    include '../check/checkColec.php';
-                                ?> 
-                            </datalist>
-                            <!--<select id="coleccion" name="coleccion">
-                            <option disabled selected>--</option>
-                            
-                            
-                            </select>-->
-                            <br>
-                            <label for="tomoCol">Tomo: </label>
-                            <br>
-                            <input id="tomoCol" type="number" name="tomoCol" placeholder="añade número...">
-                            <br>
+                            <div class="dosyuno">
+                                <label for="coleccion">Colección: </label>
+                                <label for="tomoCol">Tomo: </label>
+                            </div>
+                            <div class="dosyuno">
+                                <input list="colec" id="coleccion" name="coleccion" class="lista" type="text" placeholder="añade colección...">
+                                <datalist id="colec">
+                                   <?php
+                                        include '../check/checkColec.php';
+                                    ?> 
+                                </datalist>
+                                <input id="tomoCol" type="number" name="tomoCol" placeholder="añade número...">
+                            </div>
                             <label for="saga">¿Pertenece a una Saga?</label>
                             <br>
                             <input type="radio" name="saga_siNo" value="si" onclick="show('sgs')">Si
                             <input type="radio" name="saga_siNo" value="no" onclick="hide('sgs')">No
-                            <br>
                             <div class="sag" id="sgs">
-                                <label for="saga">Saga: </label>
-                                <br>
-                                <select id="saga" name="saga">
-                                <option disabled selected>--</option>
-                                    <?php
-                                      include '../check/checkSaga.php';
-                                    ?>
-                                </select>
-                            <br>
-                                <label for="tomoSag">Tomo: </label>
-                                <br>
-                                <input id="tomoSag" type="number" name="tomoSag" placeholder="añade número...">
-                                <br>
+                                <div class="dosyuno">
+                                    <label for="saga">Saga: </label>
+                                    <label for="tomoSag">Tomo: </label>
+                                </div>
+                                <div class="dosyuno">
+                                    <input list="sag" id="saga" name="saga" class="lista" type="text" placeholder="añade saga...">
+                                    <datalist>
+                                        <?php
+                                          include '../check/checkSaga.php';
+                                        ?>
+                                    </datalist> 
+                                    <input id="tomoSag" type="number" name="tomoSag" placeholder="añade número...">
+                                </div>
                             </div>
                         </div>
                         <label for="genero">Género Literario: </label>
                         <br>
-                        <select id="genero" name="genero">
-                            <option disabled selected>--</option>
-                            <?php
-                               include '../check/checkGenero.php';
-                            ?>
-                        </select>
-                        <select id="genero2" name="genero2">
-                            <option disabled selected>--</option>
-                            <?php
-                               include '../check/checkGenero.php';
-                            ?>
-                        </select>
-                        <select id="genero3" name="genero3">
-                            <option disabled selected>--</option>
-                            <?php
-                               include '../check/checkGenero.php';
-                            ?>
-                        </select>
-                        <br>
-                        <label for="paginas">Páginas: </label>
-                        <input id="paginas" type="number" name="paginas" placeholder="añade número...">
-                        <br>
-                        <label for="paginas">Idioma: </label>
-                        <select id="idioma" name="idioma">
-                            <option disabled selected>--</option>
-                            <?php
-                              include '../check/checkIdioma.php';
-                            ?>
-                        </select>
-                        Leído<input type="checkbox" name="leido" value="si">
-                        <br>
-                        <label>Portada: <h5>(24,38 x 36,12 cm)</h5></label>
-                        <input type="file" name="portada">
+                        <div class="tres">
+                            <select id="genero" name="genero">
+                                <option disabled selected>--</option>
+                                <?php
+                                   include '../check/checkGenero.php';
+                                ?>
+                            </select>
+                            <select id="genero2" name="genero2">
+                                <option disabled selected>--</option>
+                                <?php
+                                   include '../check/checkGenero.php';
+                                ?>
+                            </select>
+                            <select id="genero3" name="genero3">
+                                <option disabled selected>--</option>
+                                <?php
+                                   include '../check/checkGenero.php';
+                                ?>
+                            </select>
+                        </div>
+                        <div class="dos">
+                            <label for="paginas">Páginas: </label>
+                            <label for="paginas">Idioma: </label>
+                        </div>
+                        <div class="dos">
+                            <input id="paginas" type="number" name="paginas" placeholder="añade número...">
+                            <select id="idioma" name="idioma">
+                                <option disabled selected>--</option>
+                                <?php
+                                  include '../check/checkIdioma.php';
+                                ?>
+                            </select>
+                        </div>
+                        <div class="dos">
+                            <div>
+                                Leído<input type="checkbox" name="leido" value="si">
+                            </div>
+                            <div>
+                                <label>Portada: </label>
+                             <input type="file" name="portada">
+                            </div>
+                        </div>
+                        
+                        
+                        
+                       
                         <br>
                         <label>Sinopsis:</label>
                         <br>
