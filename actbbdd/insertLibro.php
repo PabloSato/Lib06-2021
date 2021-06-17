@@ -19,8 +19,17 @@ $balda = $_POST["balda"];
 $sinopsis=$_POST["sinopsis"];
 
 //INFO DEL AUTOR
-$autor = $_POST["autor"];
-$autor2 = $_POST["autor2"];
+$alias_autor = $_POST["autor"];
+$sql_idAutor = "SELECT * FROM autor WHERE alias = '$alias_autor'";
+$consu_idAutor = mysqli_query($con, $sql_idAutor);
+$result_idAutor = mysqli_fetch_array($consu_idAutor);
+$autor = $result_idAutor["id"];
+$alias_autor2 = $_POST["autor2"];
+$sql_idAutor2 = "SELECT * FROM autor WHERE alias = '$alias_autor2'";
+$consu_idAutor2 = mysqli_query($con, $sql_idAutor2);
+$result_idAutor2 = mysqli_fetch_array($consu_idAutor2);
+$autor2 = $result_idAutor2["id"];
+
 
 //GENERO
 $genero = $_POST["genero"];
@@ -156,7 +165,7 @@ if ($uploadOk == 0) {
      $resultadoID= mysqli_fetch_array($consulID);
      $id_libro = $resultadoID["id"];
      $sql_libAutor = "INSERT INTO libro_autor(id_autor, id_libro) VALUES($autor,$id_libro)";
-     $consulta_autor = mysqli_query($con, $sql_libAutor) or die ("Error al insertar en BBDD aqui autor");
+     $consulta_autor = mysqli_query($con, $sql_libAutor) or die ("Error al insertar en BBDD aqui! autor $autor");
      if($autor2 != ""){ 
         $sql_libAutor2 = "INSERT INTO libro_autor(id_autor, id_libro) VALUES($autor2,$id_libro)";
         $consulta_autor2 = mysqli_query($con, $sql_libAutor2) or die ("Error al insertar en BBDD aqui autor2");
@@ -188,7 +197,7 @@ if ($uploadOk == 0) {
      $resultadoID= mysqli_fetch_array($consulID);
      $id_libro = $resultadoID["id"];
      $sql_libAutor = "INSERT INTO libro_autor(id_autor, id_libro) VALUES($autor,$id_libro)";
-     $consulta_autor = mysqli_query($con, $sql_libAutor) or die ("Error al insertar en BBDD aqui autor");
+     $consulta_autor = mysqli_query($con, $sql_libAutor) or die ("Error al insertar en BBDD aqui! autor $autor");
      if($autor2 != ""){ 
         $sql_libAutor2 = "INSERT INTO libro_autor(id_autor, id_libro) VALUES($autor2,$id_libro)";
         $consulta_autor2 = mysqli_query($con, $sql_libAutor2) or die ("Error al insertar en BBDD aqui autor2");

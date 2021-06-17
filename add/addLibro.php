@@ -68,18 +68,30 @@ if(isset($_GET["mng"]))
                         <br>
                         <label for="autor">Autor: </label>
                         <br>
-                        <select id="autor" name="autor">
-                            <option disabled="" selected="">--</option>
+                        <input list="autores" name="autor" id="autor">
+                        <datalist id="autores">
                             <?php
                             include '../check/checkAutores.php';
                             ?>
-                        </select>
-                        <select id="autor2" name="autor2">
+                        </datalist>
+                        <input list="autores2" name="autor2" id="autor2">
+                        <datalist id="autores2">
+                            <?php
+                            include '../check/checkAutores.php';
+                            ?>
+                        </datalist>
+                        <!--<select id="autor" name="autor">
+                            <option disabled="" selected="">--</option>
+                            <?php
+                            //include '../check/checkAutores.php';
+                            ?>
+                        </select>-->
+                        <!--<select id="autor2" name="autor2">
                                 <option disabled="" selected="">--</option>
                                 <?php
-                                include '../check/checkAutores.php';
+                                //include '../check/checkAutores.php';
                                 ?>
-                        </select>
+                        </select>-->
                         <br>
                         <label for="coleccion">¿Pertenece a una Colección?</label>
                         <br>
