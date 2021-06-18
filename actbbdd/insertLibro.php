@@ -42,7 +42,7 @@ $saga_form = $_POST["saga"];
 $sql_saga = "SELECT * FROM saga WHERE nombre = '$saga_form'";
 $consu_saga = mysqli_query($con, $sql_saga);
 $result_saga = mysqli_fetch_array($consu_saga);
-$saga = $result_saga["id"];
+$saga = $result_saga["id_saga"];
 
 //GENERO
 $genero = $_POST["genero"];
