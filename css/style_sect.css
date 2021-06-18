@@ -164,6 +164,12 @@ p, h4, h5{
     width: 100%;
     padding: 5px 10px;
 }
+.formulario select{
+    margin-top: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 5px 10px;
+}
 .formulario .dos{
     width: 100%;
     display: grid;
@@ -414,12 +420,12 @@ p, h4, h5{
 .detalle_ .principal .nombre_texto{
     max-height: 600px;
     min-height: 550px;
-    overflow: hidden;
+    overflow: auto;
     padding-right: 10px;
 }
-.detalle_ .principal .nombre_texto:hover{
+/*.detalle_ .principal .nombre_texto:hover{
     overflow: auto
-}
+}*/
 .detalle_ .principal .nombre_texto::-webkit-scrollbar{
     background-color: rgba(97, 97, 97, 0.4);
 } 

@@ -37,6 +37,13 @@ $consu_col = mysqli_query($con, $sql_colecion);
 $result_col = mysqli_fetch_array($consu_col);
 $coleccion = $result_col["id"];
 
+//INFO SAGA
+$saga_form = $_POST["saga"];
+$sql_saga = "SELECT * FROM saga WHERE nombre = '$saga_form'";
+$consu_saga = mysqli_query($con, $sql_saga);
+$result_saga = mysqli_fetch_array($consu_saga);
+$saga = $result_saga["id"];
+
 //GENERO
 $genero = $_POST["genero"];
 $genero2 = $_POST["genero2"];
