@@ -112,11 +112,11 @@ if(isset($_GET["mng"]))
                                 </div>
                                 <div class="dosyuno">
                                     <input list="sag" id="saga" name="saga" class="lista" type="text" placeholder="añade saga...">
-                                    <datalist>
+                                    <datalist id="sag">
                                         <?php
                                           include '../check/checkSaga.php';
                                         ?>
-                                    </datalist> 
+                                    </datalist>
                                     <input id="tomoSag" type="number" name="tomoSag" placeholder="añade número...">
                                 </div>
                             </div>
