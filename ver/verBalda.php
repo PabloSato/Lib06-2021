@@ -48,10 +48,5 @@ if(isset($_GET["id"])){
         </div>
 
     </section>
-    <script>
-        function showTtl(id){document.getElementById(id).style.display="block";}
-    </script>
-    <script>
-        function hideTtl(id){document.getElementById(id).style.display="none";}
-    </script>
+    <script type="text/javascript" src="../javascript/funciones.js"></script>
     </body>
