@@ -18,6 +18,35 @@ $sql_autor_name= "SELECT * FROM autor WHERE id = '$id_autor_book'";
 $consulta_id = mysqli_query($con, $sql_autor_name);
 $name_autor = mysqli_fetch_array($consulta_id);
 
+//LEYENDO
+    //LIBRO
+$sqLeyendo="SELECT leyendo.id_book, leyendo.total AS paginas, leyendo.act_pag,
+            libro.titulo, libro.portada
+            FROM leyendo
+            INNER JOIN libro
+            ON leyendo.id_book = libro.id";
+$consultaLeyendo = mysqli_query($con, $sqLeyendo);
+$filaLeyendo = mysqli_fetch_array($consultaLeyendo);
+$id_book = $filaLeyendo["id_book"];
+$tot = $filaLeyendo["paginas"];
+$actual = $filaLeyendo["act_pag"];
+$book = $filaLeyendo["titulo"];
+$cover = $filaLeyendo["portada"];
+    //AUTOR
+$sqlAutLeyendo= "SELECT autor.alias, autor.id AS id_autor
+                FROM autor
+                INNER JOIN libro_autor
+                ON autor.id = libro_autor.id_autor
+                WHERE libro_autor.id_libro = $id_book";
+$conAutLeyendo = mysqli_query($con, $sqlAutLeyendo);
+$filaAutorLeyendo = mysqli_fetch_array($conAutLeyendo);
+$nombreAutor = $filaAutorLeyendo["alias"];
+$idAutor = $filaAutorLeyendo["id_autor"];
+
+    //PORCENTAJE
+$porcen = round(($actual/$tot)*100);
+
+
 
 ?>
 <!DOCTYPE html>
@@ -62,27 +91,28 @@ $name_autor = mysqli_fetch_array($consulta_id);
                 <div class="galeria1">
                     <div class="gal_view1">
                         <div class="imgen">
-                            <a href="detalle/detalleLibro.php"><img src="img/books/icon1.jpeg" alt="El Poder del Perro"></a>
+                            <a href="detalle/detalleLibro.php?id=<?=$id_book?>"><img src="actbbdd/uploads/<?=$cover?>" alt="<?=$book?>"></a>
                         </div>
                         <div class="pop-up" id="pop-up1">
                             <div class="up">
                                 <h5>Actualiza tu progreso</h5>
                             </div>
                             <div class="info">
-                                <form>
+                                <form method="post" enctype="multipart/form-data" action="actbbdd/updateLeyendo.php">
                                     <label>Página</label>
-                                    <input type="number" name="progress" placeholder="75">
-                                    <label>de 719</label>
+                                    <input type="number" name="progress" placeholder="<?=$actual?>">
+                                    <label>de <?=$tot?></label>
                                     <br>
+                                    <input type="hidden" id="id_book" name="id_book" value="<?=$id_book?>">
                                     <input type="submit" value="actualiar" onclick="closeForm('pop-up1'), openDisplay('1')">
                                 </form>
                             </div>
                         </div>
                         <div class="data_books" id="1">
-                            <h5><a href="detalle/detalleLibro.php">El Poder del Perro</a></h5>
-                            <p>de <span><a href="detalle/det_autor1.html">Don Winslow</a></span></p>
-                            <progress value="75" max="719"></progress>
-                            <p><code>75/719 (1%)</code></p>
+                            <h5><a href="detalle/detalleLibro.php?id=<?=$id_book?>"><?=$book?></a></h5>
+                            <p>de <span><a href="detalle/detalleAutor.php?id=<?=$idAutor?>"><?=$nombreAutor?></a></span></p>
+                            <progress value="<?=$actual?>" max="<?=$tot?>"></progress>
+                            <p><code><?=$actual?>/<?=$tot?> (<?=$porcen?>%)</code></p>
                             <div class="btn open"><a onclick="openForm('pop-up1'), closeDisplay('1')">actualizar</a></div>
                         </div>
                     </div>

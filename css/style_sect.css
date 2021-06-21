@@ -457,6 +457,10 @@ p, h4, h5{
     word-spacing: 5px;
     text-align: justify;
 }
+.detalle_ .principal form input{
+    width: 200px;
+    padding: 10px 20px;
+}
 .aut_gal{
     margin-top: 20px;
     padding-top: 9px;

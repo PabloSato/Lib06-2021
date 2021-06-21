@@ -1,6 +1,7 @@
 <?php
 include '../inc/conexion.php';
 $id="";
+$read = false;
 if(isset($_GET["id"])){
     $id = $_GET["id"];
     $sql = "SELECT * FROM libro WHERE id=$id";
@@ -111,6 +112,13 @@ if(isset($_GET["id"])){
         $leido = "No";
     }
     
+    $sqLeyendo = "SELECT * FROM leyendo WHERE id_book = $id";
+    $consultaLeyendo = mysqli_query($con, $sqLeyendo);
+    $leyendo = mysqli_num_rows($consultaLeyendo);
+    if($leyendo>0){
+        $read = true;
+    }
+    
 }
 ?>
 <!DOCTYPE html>
@@ -196,32 +204,47 @@ if(isset($_GET["id"])){
                 </div>
                 <div class="principal">
                     <div class="nombre_texto">
-                    <h2><?=$titulo?></h2>
-                    <h3><?php
-                        $cuantos_aut = count($id_autores);
-                        $au =array();
-                        $au_num = count($au);
-                        if($cuantos_aut>1){
-                            for($i=0; $i<$cuantos_aut; $i++){
-                                $au[] = $autores[$i];
-                                ?>
-                                <a href="detalleAutor.php?id=<?=$id_autores[$i]?>"><?=$autores[$i]?> </a> /
-                                <?php
-                            }
-                        }else{
+                        <h2><?=$titulo?></h2>
+                        <h3><?php
+                            $cuantos_aut = count($id_autores);
+                            $au =array();
+                            $au_num = count($au);
+                            if($cuantos_aut>1){
                                 for($i=0; $i<$cuantos_aut; $i++){
-                                $au[] = $autores[$i];
-                                ?>
-                                <a href="detalleAutor.php?id=<?=$id_autores[$i]?>"><?=$autores[$i]?> </a>
-                                <?php
-                            }
-                            }
-                        
-                        
-                        ?>
-                    </h3>
-                    <p><?=$sinopsis?></p>
+                                    $au[] = $autores[$i];
+                                    ?>
+                                    <a href="detalleAutor.php?id=<?=$id_autores[$i]?>"><?=$autores[$i]?> </a> /
+                                    <?php
+                                }
+                            }else{
+                                    for($i=0; $i<$cuantos_aut; $i++){
+                                    $au[] = $autores[$i];
+                                    ?>
+                                    <a href="detalleAutor.php?id=<?=$id_autores[$i]?>"><?=$autores[$i]?> </a>
+                                    <?php
+                                }
+                                }
+
+
+                            ?>
+                        </h3>
+                        <p><?=$sinopsis?></p>
                     </div>
+                    <?php
+                    if($read != true){?>
+                        <form action="../actbbdd/insertLeyendo.php" method="post" enctype="multipart/form-data">
+                            <input type="hidden" id="id" name="id" value="<?=$id?>">
+                            <input type="hidden" id="paginas" name="paginas" value="<?=$paginas?>">
+                            <input type="submit" value="Leer">
+                        </form> 
+                   <?php }else{?>
+                        <form action="../actbbdd/dejarLeer.php" method="post" enctype="multipart/form-data">
+                            <input type="hidden" id="id" name="id" value="<?=$id?>">
+                            <input type="submit" value="Dejar de Leer">
+                        </form> 
+                   <?php }
+                    ?>
+                    
                 </div>
 
             </article>
