@@ -20,33 +20,6 @@ $name_autor = mysqli_fetch_array($consulta_id);
 
 //LEYENDO
     //LIBRO
-$sqLeyendo="SELECT leyendo.id_book, leyendo.total AS paginas, leyendo.act_pag,
-            libro.titulo, libro.portada
-            FROM leyendo
-            INNER JOIN libro
-            ON leyendo.id_book = libro.id";
-$consultaLeyendo = mysqli_query($con, $sqLeyendo);
-$filaLeyendo = mysqli_fetch_array($consultaLeyendo);
-$id_book = $filaLeyendo["id_book"];
-$tot = $filaLeyendo["paginas"];
-$actual = $filaLeyendo["act_pag"];
-$book = $filaLeyendo["titulo"];
-$cover = $filaLeyendo["portada"];
-    //AUTOR
-$sqlAutLeyendo= "SELECT autor.alias, autor.id AS id_autor
-                FROM autor
-                INNER JOIN libro_autor
-                ON autor.id = libro_autor.id_autor
-                WHERE libro_autor.id_libro = $id_book";
-$conAutLeyendo = mysqli_query($con, $sqlAutLeyendo);
-$filaAutorLeyendo = mysqli_fetch_array($conAutLeyendo);
-$nombreAutor = $filaAutorLeyendo["alias"];
-$idAutor = $filaAutorLeyendo["id_autor"];
-
-    //PORCENTAJE
-$porcen = round(($actual/$tot)*100);
-
-
 
 ?>
 <!DOCTYPE html>
@@ -85,108 +58,27 @@ $porcen = round(($actual/$tot)*100);
         <div class="conte">
             <h2>LIBROS</h2>
             <h3><cite>Tantos libros, tan poco tiempo</cite></h3>
-
-            <div class="col_izq">
-                <h4>Leyendo</h4>
-                <div class="galeria1">
-                    <div class="gal_view1">
-                        <div class="imgen">
-                            <a href="detalle/detalleLibro.php?id=<?=$id_book?>"><img src="actbbdd/uploads/<?=$cover?>" alt="<?=$book?>"></a>
-                        </div>
-                        <div class="pop-up" id="pop-up1">
-                            <div class="up">
-                                <h5>Actualiza tu progreso</h5>
-                            </div>
-                            <div class="info">
-                                <form method="post" enctype="multipart/form-data" action="actbbdd/updateLeyendo.php">
-                                    <label>Página</label>
-                                    <input type="number" name="progress" placeholder="<?=$actual?>">
-                                    <label>de <?=$tot?></label>
-                                    <br>
-                                    <input type="hidden" id="id_book" name="id_book" value="<?=$id_book?>">
-                                    <input type="submit" value="actualiar" onclick="closeForm('pop-up1'), openDisplay('1')">
-                                </form>
-                            </div>
-                        </div>
-                        <div class="data_books" id="1">
-                            <h5><a href="detalle/detalleLibro.php?id=<?=$id_book?>"><?=$book?></a></h5>
-                            <p>de <span><a href="detalle/detalleAutor.php?id=<?=$idAutor?>"><?=$nombreAutor?></a></span></p>
-                            <progress value="<?=$actual?>" max="<?=$tot?>"></progress>
-                            <p><code><?=$actual?>/<?=$tot?> (<?=$porcen?>%)</code></p>
-                            <div class="btn open"><a onclick="openForm('pop-up1'), closeDisplay('1')">actualizar</a></div>
-                        </div>
+            <div class="tres">   
+                <div class="izq">
+                    <h4>Leyendo</h4>
+                    <div class="galeria_read">
+                        <?php include './inc/leyendo.php'; ?>
                     </div>
-                    <div class="gal_view1">
-                        <div class="imgen">
-                            <a href="detalle/det_libro2.html"><img src="img/books/icon2.jpeg" alt="El Señor de los Anillos"></a>
-                        </div>
-                        <div class="pop-up" id="pop-up2">
-                            <div class="up">
-                                <h5>Actualiza tu progreso</h5>
-                            </div>
-                            <div class="info">
-                                <form>
-                                    <label>Página</label>
-                                    <input type="number" name="progress" placeholder="975">
-                                    <label>de 1600</label>
-                                    <br>
-                                    <input type="submit" value="actualiar" onclick="closeForm('pop-up2'), openDisplay('2')">
-                                </form>
-                            </div>
-                        </div>
-                        <div class="data_books" id="2">
-                            <h5><a href="detalle/det_libro2.html">El Señor de los Anillos</a></h5>
-                            <p>de <span><a href="detalle/det_autor2.html">J.R.R.Tolkien</a></span></p>
-                            <progress value="975" max="1600"></progress>
-                            <p><code>975/1600 (60%)</code></p>
-                            <div class="btn open"><a onclick="openForm('pop-up2'), closeDisplay('2')">actualizar</a></div>
-                        </div>
-                    </div>
-                    <div class="gal_view1">
-                        <div class="imgen">
-                            <a href="detalle/det_libro3.html"><img src="img/books/icon3.jpeg" alt="Yo, Robot"></a>
-                        </div>
-                        <div class="pop-up" id="pop-up3">
-                            <div class="up">
-                                <h5>Actualiza tu progreso</h5>
-                            </div>
-                            <div class="info">
-                                <form>
-                                    <label>Página</label>
-                                    <input type="number" name="progress" placeholder="325">
-                                    <label>de 370</label>
-                                    <br>
-                                    <input type="submit" value="actualiar" onclick="closeForm('pop-up3'), openDisplay('3')">
-                                </form>
-                            </div>
-                        </div>
-                        <div class="data_books" id="3">
-                            <h5><a href="detalle/det_libro3.html">Yo, Robot</a></h5>
-                            <p>de <span><a href="detalle/det_autor3.html">Isaac Asimov</a></span></p>
-                            <progress value="325" max="370"></progress>
-                            <p><code>325/719 (87%)</code></p>
-                            <div class="btn open"><a onclick="openForm('pop-up3'), closeDisplay('3')">actualizar</a></div>
-                        </div>
-                    </div>
-
                 </div>
-            </div>
 
-            <div class="col_cent">
-                <article>
-                    <div class="art_img">
+                <div class="cent">
+                    <article>
                         <a href="detalle/detalleLibro.php?id=<?= $last_book["id"] ?>"><img src="actbbdd/uploads/<?= $last_book["portada"] ?>" alt="<?= $last_book["titulo"] ?>"></a>
-                    </div>
-                    <div class="art_texto">
-                        <h4><a href="detalle/detalleLibro.php?id=<?= $last_book["id"] ?>"><?= $last_book["titulo"] ?></a></h4>
-                        <h5><a href="detalle/detalleAutor.php?id=<?=$name_autor["id"]?>"><?= $name_autor["alias"] ?></a></h5>
-                        <p><?= $last_book["sinopsis"] ?></p>
-                    </div>
-                </article>
-            </div>
-                <div class="col_der">
+                        <div class="info">
+                            <h4><a href="detalle/detalleLibro.php?id=<?= $last_book["id"] ?>"><?= $last_book["titulo"] ?></a></h4>
+                            <h5><a href="detalle/detalleAutor.php?id=<?=$name_autor["id"]?>"><?= $name_autor["alias"] ?></a></h5>
+                            <p><?= $last_book["sinopsis"] ?></p>
+                        </div>
+                    </article>
+                </div>
+                
+                <div class="dere">
                     <h4>Menu</h4>
-                    <div class="menu">
                         <nav>
                             <ul>
                                 <li><a href="ver/verLibro.php">LIBROS</a></li>
@@ -197,46 +89,42 @@ $porcen = round(($actual/$tot)*100);
                                 <li><a href="#">RETO</a></li>
                                 <li><a href="#">MISCELANEA</a></li>
                             </ul>
-                        </nav>
-                    </div>
+                        </nav>       
                 </div>
-            
+
+            </div>
         </div>    
     </section>
 
     <!------------------------------------------------------------------------AUTORES-->
-    <section id="autores" class="fondo_oscuro">
-        
+    <section id="autores" class="fondo_oscuro">   
             <div class="conte">
                 <h2>AUTORES</h2>
                 <h3><cite>Escoge un autor como escogerías un amigo</cite></h3>
-                <div class="col_izq"></div>
-                <div class="col_cent">
-                    <article>
-                        <div class="art_img">
+                <div class="tres">
+                    <div class="izq"></div>
+                    <div class="cent">
+                        <article>
                             <a href="detalle/detalleAutor.php?id=<?=$fila_autor["id"]?>"><img src="actbbdd/uploads/<?=$fila_autor["foto"]?>" alt="<?=$fila_autor["alias"]?>"></a>
-                        </div>
-                        <div class="art_texto">
-                            <h4><a href="detalle/detalleAutor.php?id=<?=$fila_autor["id"]?>"><?=$fila_autor["alias"]?></a></h4>
-                            <h5><a href="ver/verAutores.php"><i>Últimos Autores</i></a></h5>
-                            <p><?=$fila_autor["bio"]?></p>
-                        </div>
-                    </article>
-                </div>
-                    <div class="col_der">
-                        <h4>Menu</h4>
-                        <div class="menu">
-                            <nav>
-                                <ul>
-                                    <li><a href="ver/verAutores.php">AUTORES</a></li>
-                                    <li><a href="add/addAutor.php">AÑADIR</a></li>
-                                    <li><a href="#">EDITAR</a></li>
-                                </ul>
-                            </nav>
-                        </div>
+                            <div class="info">
+                                <h4><a href="detalle/detalleAutor.php?id=<?=$fila_autor["id"]?>"><?=$fila_autor["alias"]?></a></h4>
+                                <h5><a href="ver/verAutores.php"><i>Últimos Autores</i></a></h5>
+                                <p><?=$fila_autor["bio"]?></p>
+                            </div>
+                        </article>
                     </div>
+                    <div class="dere">
+                        <h4>Menu</h4>
+                        <nav>
+                            <ul>
+                                <li><a href="ver/verAutores.php">AUTORES</a></li>
+                                <li><a href="add/addAutor.php">AÑADIR</a></li>
+                                <li><a href="#">EDITAR</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
             </div>
-        
     </section>
 
     <!------------------------------------------------------------------------UBICACIONES-->
@@ -341,49 +229,6 @@ $porcen = round(($actual/$tot)*100);
             </div>
         </div>
     </section>
-    <script>
-        function openForm(id){document.getElementById(id).style.display = "block";}
-    </script>
-    <script>
-        function closeDisplay(id){document.getElementById(id).style.display="none"}
-    </script>
-    <script>
-        function closeForm(id){document.getElementById(id).style.display = "none";}
-    </script>
-        <script>
-        function openDisplay(id){document.getElementById(id).style.display="block"}
-    </script>
-     <script>
-        function showPablo(){
-            document.getElementById('pablo').style.display="block";
-            document.getElementById('paty').style.display="none";
-            document.getElementById('buhar').style.display="none";
-            document.getElementById('salon').style.display="none";
-        }
-    </script>
-
-    <script>
-        function showPaty(){
-            document.getElementById('paty').style.display="block";
-            document.getElementById('pablo').style.display="none";
-            document.getElementById('buhar').style.display="none";
-            document.getElementById('salon').style.display="none";
-        }
-    </script>
-    <script>
-        function showSalon(){
-            document.getElementById('salon').style.display="block";
-            document.getElementById('paty').style.display="none";
-            document.getElementById('buhar').style.display="none";
-            document.getElementById('pablo').style.display="none";
-        }
-    </script>
-    <script>
-        function showBuhar(){
-            document.getElementById('buhar').style.display="block";
-            document.getElementById('paty').style.display="none";
-            document.getElementById('pablo').style.display="none";
-            document.getElementById('salon').style.display="none";
-        }
-    </script>
+    <!--JAVASCRIPT!!------------*********************************************************-->
+    <script type="text/javascript" src="css/functions.js"></script>
 </body>
