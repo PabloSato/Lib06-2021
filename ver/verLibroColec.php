@@ -21,7 +21,7 @@ if(isset($_GET["id"])){
     <!---------------------------------------------------------------------------CABECERA-->
     <header>
         <!--<div class="up"><div class="gen"><a href="#">Misterio</a></div></div>-->
-        <div class="cabecera">
+        
             <div id="logo">
                 <h2><?=$coleccion?></h2>
             </div>
@@ -32,7 +32,7 @@ if(isset($_GET["id"])){
                     <li><a href="javascript:history.go(-1)">volver</a></li>
                 </ul>
             </nav>
-        </div>
+      
     </header>
     <!---------------------------------------------------------------------------CONTENIDO-->
     <section class="fondo_claro">

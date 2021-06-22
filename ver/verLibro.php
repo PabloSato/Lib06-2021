@@ -10,7 +10,7 @@
     <!---------------------------------------------------------------------------CABECERA-->
     <header>
         <!--<div class="up"><div class="gen"><a href="#">Misterio</a></div></div>-->
-        <div class="cabecera">
+      
             <div id="logo">
                 <h2>BIBLIOTECA</h2>
             </div>
@@ -20,7 +20,7 @@
                     <li><a href="javascript:history.go(-1)">volver</a></li>
                 </ul>
             </nav>
-        </div>
+        
     </header>
     <!---------------------------------------------------------------------------CONTENIDO-->
     <section class="fondo_claro">

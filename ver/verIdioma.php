@@ -9,7 +9,7 @@
 <body>
     <!---------------------------------------------------------------------------CABECERA-->
     <header>
-        <div class="cabecera">
+        
             <div id="logo">
                 <h2>BIBLIOTECA</h2>
             </div>
@@ -20,7 +20,7 @@
                     <li><a href="javascript:history.go(-1)">volver</a></li>
                 </ul>
             </nav>
-        </div>
+       
     </header>
     <section class="fondo_claro">
         <div class="conte">

@@ -28,7 +28,7 @@ if(isset($_GET["mng"]))
     <!---------------------------------------------------------------------------CABECERA-->
     <header>
         <!--<div class="up"><div class="gen"><a href="#">Misterio</a></div></div>-->
-        <div class="cabecera">
+        
             <div id="logo">
                 <h2>AÑADIR</h2>
             </div>
@@ -41,7 +41,7 @@ if(isset($_GET["mng"]))
                     <li><a href="addUbic.php">ubicaciones</a></li>
                 </ul>
             </nav>
-        </div>
+        
     </header>
       <!------------------------------------------------------------------------PORTADA-->
       <!-- <section id="home" class="portada">

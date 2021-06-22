@@ -34,7 +34,6 @@ $name_autor = mysqli_fetch_array($consulta_id);
     <!---------------------------------------------------------------------------CABECERA-->
     <header>
         <!--<div class="up"><div class="gen"><a href="#">Misterio</a></div></div>-->
-        <div class="cabecera">
             <div id="logo">
                 <h2>BIBLIOTECA</h2>
             </div>
@@ -46,7 +45,6 @@ $name_autor = mysqli_fetch_array($consulta_id);
                     <li><a href="#ubicaciones">ubicaciones</a></li>
                 </ul>
             </nav>
-        </div>
     </header>
     <!------------------------------------------------------------------------PORTADA-->
     <section id="home" class="portada">
