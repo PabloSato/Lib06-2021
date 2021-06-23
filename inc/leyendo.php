@@ -57,9 +57,11 @@ if($numLey>0){
                         <br>
                         <input type="hidden" id="id_book" name="id_book" value="<?=$id_book?>">
                         <input type="submit" value="actualiar" id="pop-out<?=$num?>">
-                        <div class="close" id="popout<?=$num?>">cerrar</div>
-                        
                     </form>
+                    <form>
+                        <div class="close" id="popout<?=$num?>">cerrar</div>
+                    </form>
+                    
                 </div>
             </div>
         </div>
@@ -67,7 +69,7 @@ if($numLey>0){
     }
     if($numLey>3){?>
         <div class="more">
-            <div class="btn" id="more"><a>ver todo</a></div>
+            <div class="btn" id="more"><a href="leyendoLibros.php">ver todo</a></div>
         </div>
    <?php }
     }else{

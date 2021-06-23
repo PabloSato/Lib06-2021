@@ -558,3 +558,105 @@ p, h4, h5{
      background:green;
 }
 
+/*LEYEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEENDO*/
+
+/*COLUMNA UNA*****************/
+.uno{
+    width: 90%;
+    margin: 2em auto;
+    min-height: 750px;
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    grid-template-rows: 18.5em;
+    row-gap: 1em;
+    column-gap: 2em;
+}
+.libro{
+    width: 100%;
+    min-height: 18.5em;
+    display: grid;
+    grid-template-columns: 0.7fr 2fr;
+    column-gap: 1em;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #fff;
+}
+.libro img{
+    width: 100%;
+    max-height: 18.5em;
+}
+.libro .data{
+    line-height: 2em;
+}
+.libro .data h5 a{
+    font-family: 'spaceMonoBold';
+    font-size: 1.5em;
+    text-decoration: none;
+    color: #fff;
+}
+.libro .data h5 a:hover{
+    color: #b21a1a;
+    cursor: pointer;
+}
+.libro .data  p{
+    font-size: 1em;
+    color: lightslategray;
+}
+.libro .data p a{
+    text-decoration: none;
+    font-size: 1.3em;
+    color: #E14607;
+}
+.libro .data p a:hover{
+    color: darkgray;
+    cursor: pointer;
+}
+.libro .data p code{
+    font-size: 1.3em;
+    color: beige;
+}
+.libro .data .up_data{
+    width: 90%;
+    font-family: 'spaceMono';
+}
+.libro .data form input[type=number]{
+    width: 100px;
+    text-align: center;
+}
+.libro .data .btns{
+    margin-top: 1em;
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(3,1fr);
+    column-gap: 0.5em;
+}
+.libro .data form input[type=submit], .libro .data form .fin, .libro .data form .out{
+    background-color: antiquewhite;
+    display: block;
+    border-radius: 7%;
+    border: 1px solid black;
+    max-height: 25px;
+}
+.libro .data form input[type=submit]:hover{
+    background-color: black;
+    opacity: 0.8;
+    color:  antiquewhite;
+    border: 1px solid #f9f5ee;
+    border-radius: 7%;
+    cursor: pointer;
+}
+.libro .data form .fin:hover{
+    background-color: black;
+    opacity: 0.8;
+    color:  antiquewhite;
+    border: 1px solid green;
+    border-radius: 7%;
+    cursor: pointer;
+}
+.libro .data form .out:hover{
+    background-color: black;
+    opacity: 0.8;
+    color:  antiquewhite;
+    border: 1px solid #E14607;
+    border-radius: 7%;
+    cursor: pointer;
+}
