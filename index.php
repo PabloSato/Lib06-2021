@@ -127,14 +127,13 @@ $name_autor = mysqli_fetch_array($consulta_id);
 
     <!------------------------------------------------------------------------UBICACIONES-->
     <section id="ubicaciones" class="fondo_claro">
-        <div class="conte dos">
+        <div class="conte">
             <h2>UBICACIONES</h2>
             <h3><cite>Un lugar para cada libro</cite></h3>
-
-            <div class="menu_izq">
-                <h4>habitaciones</h4>
-                <div class="menu">
-                    <nav>
+            <div class="tres">
+                <div class="izq">
+                   <h4>habitaciones</h4> 
+                   <nav>
                         <ul>
                             <li><a href="#pablo" onclick="showPablo()">Pablo</a></li>
                             <li><a href="#paty" onclick="showPaty()">Patty</a></li>
@@ -143,10 +142,9 @@ $name_autor = mysqli_fetch_array($consulta_id);
                         </ul>
                     </nav>
                 </div>
-            </div>
-            <div class="ubi_gal">
-                <div id="pablo">
-                    <?php
+                <div class="cent">
+                    <div class="stantes" id="pablo">
+                        <?php
                     $sql_st = "SELECT * FROM estanteria WHERE ubicacion = 'Habitación Pablo'";
                     $consulta_st = mysqli_query($con, $sql_st);
                     $filas_st = mysqli_num_rows($consulta_st);
@@ -155,17 +153,17 @@ $name_autor = mysqli_fetch_array($consulta_id);
                         for($i=0; $i< $filas_st; $i++){
                             $num += 1;
                             $fila= mysqli_fetch_array($consulta_st);
-                            ?><div class="gal_st">
-                                <a href="ver/verBalda.php?id=<?= $fila["id"] ?>"><img src="img/st/st<?=$num?>.jpeg" alt="estanteria"></a>
+                            ?><div class="st">
+                                <a href="ver/verBalda.php?id=<?= $fila["id"] ?>"><img src="img/st/st<?=$num?>.jpeg" alt="estanteria<?=$num?>"></a>
                             </div><?php
                         }
                     }else{
                         ?><li>No hay registros</li><?php
                     }
                     ?>
-                </div>
-               <div id="paty">
-                    <?php
+                    </div>
+                    <div class="stantes" id="paty">
+                        <?php
                     $sql_st = "SELECT * FROM estanteria WHERE ubicacion = 'Habitación Patty'";
                     $consulta_st = mysqli_query($con, $sql_st);
                     $filas_st = mysqli_num_rows($consulta_st);
@@ -174,17 +172,17 @@ $name_autor = mysqli_fetch_array($consulta_id);
                         for($i=0; $i< $filas_st; $i++){
                             $num += 1;
                             $fila= mysqli_fetch_array($consulta_st);
-                            ?><div class="gal_st">
-                                <a href="ver/verBalda.php?id=<?= $fila["id"] ?>"><img src="img/st/st<?=$num?>.jpeg" alt="estanteria"></a>
+                            ?><div class="st">
+                                <a href="ver/verBalda.php?id=<?= $fila["id"] ?>"><img src="img/st/st<?=$num?>.jpeg" alt="estanteria<?=$num?>"></a>
                             </div><?php
                         }
                     }else{
                         ?><li>No hay registros</li><?php
                     }
                     ?>
-                </div>
-                <div id="buhar">
-                    <?php
+                    </div>
+                    <div class="stantes" id="buhar">
+                        <?php
                     $sql_st = "SELECT * FROM estanteria WHERE ubicacion = 'Buhardilla'";
                     $consulta_st = mysqli_query($con, $sql_st);
                     $filas_st = mysqli_num_rows($consulta_st);
@@ -193,17 +191,17 @@ $name_autor = mysqli_fetch_array($consulta_id);
                         for($i=0; $i< $filas_st; $i++){
                             $num += 1;
                             $fila= mysqli_fetch_array($consulta_st);
-                            ?><div class="gal_st">
-                                <a href="ver/verBalda.php?id=<?= $fila["id"] ?>"><img src="img/st/st<?=$num?>.jpeg" alt="estanteria"></a>
+                            ?><div class="st">
+                                <a href="ver/verBalda.php?id=<?= $fila["id"] ?>"><img src="img/st/st<?=$num?>.jpeg" alt="estanteria<?=$num?>"></a>
                             </div><?php
                         }
                     }else{
                         ?><li>No hay registros</li><?php
                     }
                     ?>
-                </div>
-                <div id="salon">
-                    <?php
+                    </div>
+                    <div class="stantes" id="salon">
+                        <?php
                     $sql_st = "SELECT * FROM estanteria WHERE ubicacion = 'Salon'";
                     $consulta_st = mysqli_query($con, $sql_st);
                     $filas_st = mysqli_num_rows($consulta_st);
@@ -212,18 +210,16 @@ $name_autor = mysqli_fetch_array($consulta_id);
                         for($i=0; $i< $filas_st; $i++){
                             $num += 1;
                             $fila= mysqli_fetch_array($consulta_st);
-                            ?><div class="gal_st">
-                                <a href="ver/verBalda.php?id=<?= $fila["id"] ?>"><img src="img/st/st<?=$num?>.jpeg" alt="estanteria"></a>
+                            ?><div class="st">
+                                <a href="ver/verBalda.php?id=<?= $fila["id"] ?>"><img src="img/st/st<?=$num?>.jpeg" alt="estanteria<?=$num?>"></a>
                             </div><?php
                         }
                     }else{
                         ?><li>No hay registros</li><?php
                     }
                     ?>
+                    </div>
                 </div>
-                
-                
-                
             </div>
         </div>
     </section>

@@ -122,6 +122,7 @@ p, h4, h5{
     margin: 0 auto;
     padding: 60px 60px;
     overflow: hidden;
+    min-height: 950px;
 }
 .dos{
     width: 1200;
@@ -463,62 +464,27 @@ p, h4, h5{
 }
 
 /************************************************UBICACIONES*/
+#pablo, #paty, #buhar, #salon{display: none;}
 
-/*         menu_izq            */
-.menu_izq{
-    float: left;
-    height: 100%;
-    width: 15%;
-    margin-bottom: 10px;;
+.cent .stantes{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1.5fr);
+    grid-auto-rows: 12em;
+    gap: 1em;
 }
-.menu_izq h4{
-    font-size: 1.5em;
-    font-weight: 300;
-    margin-bottom: 25px;
-    border-bottom: 1px solid grey;
+.cent .stantes .st{
+    width: 100%;
+    border: 1px solid black;
 }
-.menu_izq .menu{
-    min-height: 550px;
-}
-.menu_izq .menu nav ul li{
-    list-style: none;
-    margin-bottom: 15%;
-}
-.menu_izq .menu nav ul li a{
-    text-decoration: none;
-    color: darkgrey;
-    font-size: 1.3em;
-    font-family: 'bio';
-}
-.menu_izq .menu nav li a:hover{
-    color: #fff;
-    cursor: pointer;
-}
-/*         ubi_gal            */
-.ubi_gal{
-    float: left;
-    width: 70%;
-    margin-left: 10%;
-}
-
-#pablo, #paty, #buhar, #salon{
-    display: none;
-}
-.ubi_gal .gal_st{
-    float: left;
-    width: 25%;
-    padding: 0 0 25px 25px;
-    margin-right: 20px;
-}
-.ubi_gal .gal_st a{
-    display: block;
+.cent .stantes .st a{
     opacity: 0.6;
 }
-.ubi_gal .gal_st a:hover{
+.cent .stantes .st a:hover{
     opacity: 1;
 }
-.ubi_gal .gal_st a img{
+.cent .stantes .st a img{
     width: 100%;
+    max-height: 12em;
 }
-
 

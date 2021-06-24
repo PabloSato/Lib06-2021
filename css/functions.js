@@ -104,6 +104,7 @@ function showBuhar(){
 }
 
 
+
 //**********************************************TITULOS
 
 //Mostramos el titulo
