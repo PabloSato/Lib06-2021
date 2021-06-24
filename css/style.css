@@ -384,8 +384,6 @@ p, h4, h5{
 }
 .cent article .info h5 a:hover{
     color: black;
-    opacity: 0.6;
-    font-family: 'halantBold';
 }
 .cent article .info p{
     margin-top: 10px;

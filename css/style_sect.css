@@ -143,6 +143,12 @@ p, h4, h5{
     font-size: 3em;
     font-weight: 400;
 }
+.conte h3{
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: 200;
+    margin-bottom: 20px;
+}
 /************************************************FORMULARIO*/
 .formulario{
     width: 100%;
@@ -658,5 +664,89 @@ p, h4, h5{
     color:  antiquewhite;
     border: 1px solid #E14607;
     border-radius: 7%;
+    cursor: pointer;
+}
+/***********************************RETO*/
+.reto{
+    min-height: 700px;
+    width: 100%;
+    margin: 30px auto;
+    display: grid;
+    grid-template-rows: 12em;
+    row-gap: 2em;
+}
+.year{
+    max-height: 12em;
+    min-height: 12em;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    column-gap: 1em;
+    border-bottom: 1px solid #fff;
+}
+.year img{
+    width: 100%;
+    min-height: 5em;
+    border: 1px solid black;
+}
+.year .info_reto{
+    width: 100%;
+}
+.data_reto{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 0.2em;
+}
+.lista{
+    min-height: 6em;
+}
+.lista ul li{
+    list-style: none;
+}
+.lista ul li .btn{
+    margin-top: 10px;
+    width: 100px;
+    border-radius: 6%;
+    text-align: center;
+    font-size: 0.8em;
+}
+.lista ul li .btn a{
+    background-color: antiquewhite;
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+.lista ul li .btn a:hover{
+    background-color: black;
+    color: antiquewhite;
+    border: 1px solid antiquewhite;
+    cursor: pointer;
+}
+.lista_update{
+    border: 1px solid antiquewhite;
+    padding: 10px;
+    display: none;
+}
+.lista_update .up_data input{
+    padding: 2px 5px;
+    margin-bottom: 5px;
+}
+.lista_btns{
+    width: 200px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1em;
+}
+.lista_btns input{
+    margin-top: 1em;
+    background-color: antiquewhite;
+    display: block;
+    text-decoration: none;
+    color: black;
+    max-height: 23px;
+}
+.lista_btns input:hover{
+    background-color: black;
+    color: antiquewhite;
+    border: 1px solid antiquewhite;
     cursor: pointer;
 }
