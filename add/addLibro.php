@@ -165,10 +165,9 @@ if(isset($_GET["mng"]))
                              <input type="file" name="portada">
                             </div>
                         </div>
-                        
-                        
-                        
-                       
+                        <label>¿Es un Comic?</label>
+                            <input type="radio" name="comic" value="si">Si
+                            <input type="radio" name="comic" value="no" checked>No
                         <br>
                         <label>Sinopsis:</label>
                         <br>

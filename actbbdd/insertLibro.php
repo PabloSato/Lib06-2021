@@ -18,6 +18,14 @@ $estanteria = $_POST["estanteria"];
 $balda = $_POST["balda"];
 $sinopsis=$_POST["sinopsis"];
 
+//COMIC
+$comic = $_POST["comic"];
+if($comic == "si"){
+    $comic = 1;
+}else{
+    $comic = 0;
+}
+
 //INFO DEL AUTOR
 $alias_autor = $_POST["autor"];
 $sql_idAutor = "SELECT * FROM autor WHERE alias = '$alias_autor'";
@@ -104,7 +112,7 @@ if ($uploadOk == 0) {
   if (move_uploaded_file($_FILES["portada"]["tmp_name"], $target_file)) {
     echo "The file ". htmlspecialchars( basename( $_FILES["portada"]["name"])). " has been uploaded.";
     if(($coleccion != "") &&($tomoCol != "") && ($saga != "") && ($tomoSag != "")){
-     $sql_autor = "INSERT INTO libro(titulo, paginas, idioma, leido, coleccion, saga, ubicacion, estanteria, balda, portada, fecha, sinopsis) VALUES('$titulo',$paginas, $idioma, $leido, $coleccion, $saga, '$ubicacion', '$estanteria', $balda, '$foto_name', NOW(), '$sinopsis')";
+     $sql_autor = "INSERT INTO libro(titulo, paginas, idioma, leido, coleccion, saga, ubicacion, estanteria, balda, portada, fecha, sinopsis, comic) VALUES('$titulo',$paginas, $idioma, $leido, $coleccion, $saga, '$ubicacion', '$estanteria', $balda, '$foto_name', NOW(), '$sinopsis', $comic)";
      $consulta_libro = mysqli_query($con, $sql_autor) or die ("Error al insertar en BBDD 1 ");
      $sql_ID = "SELECT id FROM libro WHERE fecha = (SELECT max(fecha) FROM libro)";
      $consulID = mysqli_query($con, $sql_ID);
@@ -138,7 +146,7 @@ if ($uploadOk == 0) {
      $consulta_toSa = mysqli_query($con, $sql_toSag) or die ("Error al insertar en BBDD aqui toSag");
      header("location:../add/addLibro.php?mng=2");
     }else if (($coleccion != "") && ($tomoCol == "") && ($saga != "") && ($tomoSag != "")){
-     $sql_autor = "INSERT INTO libro(titulo, paginas, idioma, leido, coleccion, saga, ubicacion, estanteria, balda, portada, fecha, sinopsis) VALUES('$titulo',$paginas, $idioma, $leido, $coleccion, $saga, '$ubicacion', '$estanteria', $balda, '$foto_name', NOW(), '$sinopsis')";
+     $sql_autor = "INSERT INTO libro(titulo, paginas, idioma, leido, coleccion, saga, ubicacion, estanteria, balda, portada, fecha, sinopsis, comic) VALUES('$titulo',$paginas, $idioma, $leido, $coleccion, $saga, '$ubicacion', '$estanteria', $balda, '$foto_name', NOW(), '$sinopsis', $comic)";
      $consulta_libro = mysqli_query($con, $sql_autor) or die ("Error al insertar en BBDD 1-5");
      $sql_ID = "SELECT id FROM libro WHERE fecha = (SELECT max(fecha) FROM libro)";
      $consulID = mysqli_query($con, $sql_ID);
@@ -171,7 +179,7 @@ if ($uploadOk == 0) {
      header("location:../add/addLibro.php?mng=2");
         
     }else if(($coleccion != "") && ($tomoCol != "") && ($saga == "")){
-     $sql_autor = "INSERT INTO libro(titulo, paginas, idioma, leido, coleccion, ubicacion, estanteria, balda, portada, fecha, sinopsis) VALUES('$titulo',$paginas, $idioma, $leido, $coleccion, '$ubicacion', '$estanteria', $balda, '$foto_name', NOW(), '$sinopsis')";
+     $sql_autor = "INSERT INTO libro(titulo, paginas, idioma, leido, coleccion, ubicacion, estanteria, balda, portada, fecha, sinopsis, comic) VALUES('$titulo',$paginas, $idioma, $leido, $coleccion, '$ubicacion', '$estanteria', $balda, '$foto_name', NOW(), '$sinopsis', $comic)";
      $consulta_libro = mysqli_query($con, $sql_autor) or die ("Error al insertar en BBDD 2 ");
      $sql_ID = "SELECT id FROM libro WHERE fecha = (SELECT max(fecha) FROM libro)";
      $consulID = mysqli_query($con, $sql_ID);
@@ -203,7 +211,7 @@ if ($uploadOk == 0) {
      $consulta_toCol = mysqli_query($con, $sql_toCol) or die ("Error al insertar en BBDD aqui toCol");
      header("location:../add/addLibro.php?mng=2");
     }else if(($coleccion != "") && ($tomoCol == "")){
-     $sql_autor = "INSERT INTO libro(titulo, paginas, idioma, leido, coleccion, ubicacion, estanteria, balda, portada, fecha, sinopsis) VALUES('$titulo',$paginas, $idioma, $leido, $coleccion, '$ubicacion', '$estanteria', $balda, '$foto_name', NOW(), '$sinopsis')";
+     $sql_autor = "INSERT INTO libro(titulo, paginas, idioma, leido, coleccion, ubicacion, estanteria, balda, portada, fecha, sinopsis, comic) VALUES('$titulo',$paginas, $idioma, $leido, $coleccion, '$ubicacion', '$estanteria', $balda, '$foto_name', NOW(), '$sinopsis', $comic)";
      $consulta_libro = mysqli_query($con, $sql_autor) or die ("Error al insertar en BBDD 3");
      $sql_ID = "SELECT id FROM libro WHERE fecha = (SELECT max(fecha) FROM libro)";
      $consulID = mysqli_query($con, $sql_ID);
@@ -233,7 +241,7 @@ if ($uploadOk == 0) {
      $consulta_balda = mysqli_query($con, $sql_libBalda) or die ("Error al insertar en BBDD aqui balda");
     header("location:../add/addLibro.php?mng=2");
     }else if($coleccion == ""){
-     $sql_autor = "INSERT INTO libro(titulo, paginas, idioma, leido, ubicacion, estanteria, balda, portada, fecha, sinopsis) VALUES('$titulo',$paginas, $idioma, '$leido', '$ubicacion', '$estanteria', $balda, '$foto_name', NOW(), '$sinopsis')";
+     $sql_autor = "INSERT INTO libro(titulo, paginas, idioma, leido, ubicacion, estanteria, balda, portada, fecha, sinopsis, comic) VALUES('$titulo',$paginas, $idioma, '$leido', '$ubicacion', '$estanteria', $balda, '$foto_name', NOW(), '$sinopsis', $comic)";
      $consulta_libro = mysqli_query($con, $sql_autor) or die ("Error al insertar en BBDD 4");
      $sql_ID = "SELECT id FROM libro WHERE fecha = (SELECT max(fecha) FROM libro)";
      $consulID = mysqli_query($con, $sql_ID);
