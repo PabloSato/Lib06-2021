@@ -76,7 +76,7 @@ if(isset($_GET["mng"]))
                         <br>
                         <label>¿Es Dibujante?</label>
                         <input type="radio" name="dibu" value="si">Si
-                        <input type="radio" name="dibu" value="no">No
+                        <input type="radio" name="dibu" value="no" checked>No
                      </fieldset>
                     
                     <input type="submit" value="añadir autor">
